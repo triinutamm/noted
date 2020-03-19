@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:background="#000000" >
+
+    <ImageView
+        style="@style/AddNoteImageView"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        tools:ignore="ContentDescription" />
+	<LinearLayout
+		android:orientation="vertical"
+		android:minWidth="25px"
+		android:minHeight="25px"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="50dp"
+		android:id="@+id/linearLayout1" >
+		<android.support.design.widget.TextInputEditText
+			android:layout_width="fill_parent"
+			android:layout_height="match_parent"
+			android:hint="Title"
+			android:id="@+id/textInputEditText1" />
+		<android.support.design.widget.TextInputEditText
+			android:layout_width="fill_parent"
+			android:hint="Text"
+			android:layout_height="match_parent"
+			android:id="@+id/textInputEditText2" />
+	</LinearLayout>
+	<Button
+		style="@style/Button"
+		android:text="Add note"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:id="@+id/confirmAdd_btn" />
+
+</RelativeLayout>
