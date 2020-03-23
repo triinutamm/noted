@@ -21,22 +21,23 @@
 		android:layout_height="wrap_content"
 		android:layout_marginTop="50dp"
 		android:id="@+id/linearLayout1" >
-		<android.support.design.widget.TextInputEditText
+		<EditText
 			android:layout_width="fill_parent"
 			android:layout_height="match_parent"
 			android:hint="Title"
-			android:id="@+id/textInputEditText1" />
-		<android.support.design.widget.TextInputEditText
+			android:id="@+id/editNoteTitle"
+			android:inputType="text"/>
+		<EditText
 			android:layout_width="fill_parent"
 			android:hint="Text"
 			android:layout_height="match_parent"
-			android:id="@+id/textInputEditText2" />
+			android:id="@+id/editNoteContent" />
 	</LinearLayout>
 	<Button
 		style="@style/Button"
 		android:text="Edit note"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:id="@+id/confirmAdd_btn" />
+		android:id="@+id/confirmEdit_btn" />
 
 </RelativeLayout>

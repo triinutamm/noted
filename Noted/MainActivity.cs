@@ -4,6 +4,7 @@ using Android.Support.V7.App;
 using Android.Runtime;
 using Android.Widget;
 using Android.Content;
+using static Android.Widget.AdapterView;
 
 namespace Noted
 {
@@ -21,25 +22,40 @@ namespace Noted
             var editNoteButton = FindViewById<Button>(Resource.Id.editNote_btn);
             var deleteNoteButton = FindViewById<Button>(Resource.Id.deleteNote_btn);
 
+            DatabaseService.CreateDatabase();
+            DatabaseService.CreateTableWithData();
+            var notes = DatabaseService.GetAllNotes();
+
+            noteListView.Adapter = new CustomAdapter(this, notes.ToList());
+
             addNoteButton.Click += (s, e) =>
             {
-
                 var intent = new Intent(this, typeof(AddNote));
                 StartActivity(intent);
             };
 
-            editNoteButton.Click += (s, e) =>
+            noteListView.ItemClick += (object sender, ItemClickEventArgs e) =>
             {
+                var noteID = notes.ToList()[e.Position];
+  
+                editNoteButton.Click += (s, ea) =>
+                {
+                    long longid = noteID.Id;
+                    var intent = new Intent(this, typeof(EditNote));
+                    intent.PutExtra("ID", longid);
+                    intent.PutExtra("TITLE", noteID.NoteTitle);
+                    intent.PutExtra("CONTENT", noteID.NoteContent);
+                    StartActivity(intent);
+                };
 
-                var intent = new Intent(this, typeof(EditNote));
-                StartActivity(intent);
-            };
+                deleteNoteButton.Click += (s, ea) =>
+                {
+                        DatabaseService.DeleteNote(noteID.Id);
 
-            deleteNoteButton.Click += (s, e) =>
-            {
-
+                        notes = DatabaseService.GetAllNotes();
+                        noteListView.Adapter = new CustomAdapter(this, notes.ToList());               
+                };
             };
         }
-
     }
 }

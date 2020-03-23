@@ -21,16 +21,16 @@
 		android:layout_height="wrap_content"
 		android:layout_marginTop="50dp"
 		android:id="@+id/linearLayout1" >
-		<android.support.design.widget.TextInputEditText
+		<EditText
 			android:layout_width="fill_parent"
 			android:layout_height="match_parent"
 			android:hint="Title"
-			android:id="@+id/textInputEditText1" />
-		<android.support.design.widget.TextInputEditText
+			android:id="@+id/addNoteTitle" />
+		<EditText
 			android:layout_width="fill_parent"
 			android:hint="Text"
 			android:layout_height="match_parent"
-			android:id="@+id/textInputEditText2" />
+			android:id="@+id/addNoteText" />
 	</LinearLayout>
 	<Button
 		style="@style/Button"
